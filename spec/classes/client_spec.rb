@@ -15,6 +15,12 @@ describe 'cups::client' do
           'mode'    => '0644',
         })
       }
+
+      it { should contain_service('cups').with({
+          'ensure'  => 'running',
+          'enable'  => 'true',
+        })
+      }
     end
   end
 end
