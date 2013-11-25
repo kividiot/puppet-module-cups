@@ -16,7 +16,8 @@ class cups::client (
       present => 'ensure',
     }
   
-    file {'/etc/cups/client.conf':
+    file {'cups_client_conf':
+      path    => '/etc/cups/client.conf',
       ensure  => present,
       owner   => 'root',
       group   => 'root',
