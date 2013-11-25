@@ -1,7 +1,7 @@
 require 'spec_helper'
 describe 'cups::client' do
 
-  describe 'class puppet::client' do
+  describe 'class cups::client' do
 
     context 'Cups client configfile' do
       let(:facts) { { :osfamily => 'RedHat' } }

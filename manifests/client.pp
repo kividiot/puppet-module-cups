@@ -8,12 +8,12 @@ class cups::client (
       $packages = ['cups', 'cups-libs', ]
     }
 
-    if $::osfamily == 'RedHat' {
+    if $::osfamily == 'Suse' {
       $packages = ['cups', 'cups-libs', 'cups-client', ]
     }
 
     package {$packages:
-      present => 'ensure',
+      ensure  => 'present',
     }
   
     file {'cups_client_conf':
