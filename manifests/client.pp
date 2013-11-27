@@ -9,7 +9,7 @@ class cups::client (
     }
 
     if $::osfamily == 'Suse' {
-      $packages = ['cups', 'cups-libs', 'cups-client', ]
+      $packages = ['cups-libs', 'cups-client', ]
     }
 
     package {$packages:
@@ -26,10 +26,12 @@ class cups::client (
       require => Package[$packages],
     }
 
-    service {'cups':
-      ensure  => 'running',
-      enable  =>  true,
-      require => File['/etc/cups/client.conf'],
+    if $::osfamily == 'RedHat' {
+      service {'cups':
+        ensure  => 'running',
+        enable  =>  true,
+        require => File['/etc/cups/client.conf'],
+      }
     }
   }
 }
